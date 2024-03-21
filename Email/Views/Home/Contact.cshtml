@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div class="container">
+    @if (ViewBag.Msg != null)
+    {
+        <div class="alert alert-success">@ViewBag.Msg</div>
+    }
+    @if (ViewBag.ErrorMsg != null)
+    {
+        <div class="alert alert-danger">@ViewBag.ErrorMsg</div>
+    }
+    @using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <div class="form-group">
+            <label class="control-label col-md-2">Name</label>
+            <div class="col-md-6">
+                <input type="text" name="Name" class="form-control" placeholder="Name" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Email</label>
+            <div class="col-md-6">
+                <input type="text" name="Email" class="form-control" placeholder="Email" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Subject</label>
+            <div class="col-md-6">
+                <input type="text" name="Subject" class="form-control" placeholder="Subject" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Message</label>
+            <div class="col-md-6">
+                <input type="text" name="Message" class="form-control" placeholder="Message" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2 col-lg-offset-4">
+                <button class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    }
+</div>
